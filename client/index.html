@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#039be5">
+
+    <title>So Chat</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="#039be5 light-blue darken-1">
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><img class="logo img-responsive" src="img/sochat.jpg" alt="Logo"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="">GitHub</a></li>
+                <li><a href="">Documentation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="">GitHub</a></li>
+        <li><a href="">Documentation</a></li>
+    </ul>
+    <br>
+    <div class="container">
+        <div id="messages"></div>
+        <br>
+        <form onsubmit="return addMessage(this);">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="nickname" type="text" class="validate">
+                    <label for="nickname">Nickname</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col 12">
+                    <textarea id="text" class="materialize-textarea"></textarea>
+                    <label for="text">Message</label>
+                </div>
+            </div>
+            <div class="fixed-action-btn">
+                <button type="submit" value="send" class="btn-floating btn-large #aeea00 lime accent-4">
+                    <i class="large material-icons">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <!--Import JS Scripts for Chat-->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            M.textareaAutoResize($('#text'));
+        });
+    </script>
+</body>
+
+</html>
